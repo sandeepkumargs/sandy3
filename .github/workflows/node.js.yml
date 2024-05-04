@@ -15,10 +15,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20.12.0'  # Specify the version of Node.js to install
+          node-version: '21.7.3'  # Specify the version of Node.js to install
 
       - name: Install dependencies and run npm command
-        working-directory: goplatform-services/go-tools-services
+        working-directory: go-tools-services
         run: |
           npm i
 
@@ -29,10 +29,10 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+            /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 kill
             cd /home/ubuntu/go-tools-services
             sudo rm -rf *
-            cd  
-            /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 kill
+            
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
@@ -49,4 +49,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
+             cd /home/ubuntu
              /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
