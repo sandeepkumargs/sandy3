@@ -18,7 +18,7 @@ jobs:
           node-version: '21.7.3'  # Specify the version of Node.js to install
 
       - name: Install dependencies and run npm command
-        working-directory: go-tools-services
+        working-directory: go-tools-services  # Specify the directory
         run: |
           npm i
 
@@ -32,7 +32,6 @@ jobs:
             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 kill
             cd /home/ubuntu/go-tools-services
             sudo rm -rf *
-            
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
@@ -49,5 +48,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-             cd /home/ubuntu
+             cd /home/ubuntu/go-tools-services  # Adjust the directory
              /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
