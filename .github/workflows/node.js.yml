@@ -21,7 +21,6 @@ jobs:
         working-directory: goplatform-services/go-tools-services
         run: |
           npm i
-          npm run build
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
@@ -33,7 +32,7 @@ jobs:
             cd /home/ubuntu/go-tools-services
             sudo rm -rf *
             cd  
-            pm2 kill
+            /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 kill
 
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
@@ -50,4 +49,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-             pm2 start ecosystem.config.js 
+             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
