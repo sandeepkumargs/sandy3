@@ -3,7 +3,7 @@ name: BE gaplatform
 on:
   push:
     branches:
-      - "main"
+      - "develop"
 
 jobs:
   build:
@@ -15,17 +15,33 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '21.7.3'  # Specify the version of Node.js to install
+          node-version: '20.12.0'  # Specify the version of Node.js to install
 
       - name: Install dependencies and run npm command
-        working-directory: go-tools-services  # Specify the directory
+        working-directory: goplatform-services/go-tools-services
         run: |
           npm i
+          npm run build
 
-      - name: Debug - List contents before changing directory
-        run: |
-          ls
-          ls go-tools-services
+      - name: Executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }} 
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/go-tools-services
+            sudo rm -rf *
+            cd  
+            pm2 kill
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@main
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
+          REMOTE_HOST: ${{ secrets.HOST_DNS }}
+          REMOTE_USER: ${{ secrets.USERNAME }}
+          TARGET: ${{ secrets.TARGET_DIR }}
 
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
@@ -34,36 +50,4 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            cd /home/ubuntu/go-tools-services
-            ls
-            # Add other commands here
-
-      - name: Stopping running processes
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST_DNS }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 kill
-            cd /home/ubuntu/go-tools-services
-            sudo rm -rf *
-
-      - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
-        env:
-          SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
-          REMOTE_HOST: ${{ secrets.HOST_DNS }}
-          REMOTE_USER: ${{ secrets.USERNAME }}
-          source: go-tools-services/*
-          TARGET: ${{ secrets.TARGET_DIR }}
-
-      - name: Start the application
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HOST_DNS }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
-          script: |
-            cd /home/ubuntu/go-tools-services  # Adjust the directory
-            /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
+             pm2 start ecosystem.config.js 
