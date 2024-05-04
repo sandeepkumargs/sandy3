@@ -22,10 +22,26 @@ jobs:
         run: |
           npm i
 
+      - name: Debug - List contents before changing directory
+        run: |
+          ls
+          ls go-tools-services
+
       - name: Executing remote ssh commands using ssh key
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_DNS }} 
+          host: ${{ secrets.HOST_DNS }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /home/ubuntu/go-tools-services
+            ls
+            # Add other commands here
+
+      - name: Stopping running processes
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
@@ -41,12 +57,12 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
-      - name: Executing remote ssh commands using ssh key
+      - name: Start the application
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-             cd /home/ubuntu/go-tools-services  # Adjust the directory
-             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
+            cd /home/ubuntu/go-tools-services  # Adjust the directory
+            /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
