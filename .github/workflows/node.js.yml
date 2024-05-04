@@ -33,7 +33,6 @@ jobs:
             cd /home/ubuntu/go-tools-services
             sudo rm -rf *
             
-
       - name: Deploy to Server
         uses: easingthemes/ssh-deploy@main
         env:
