@@ -41,7 +41,7 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
 
-      - name: Executing remote ssh commands using ssh key
+      - name: Restart PM2 Process
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST_DNS }}
@@ -49,4 +49,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
              cd /home/ubuntu
-             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js 
+             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js
+
