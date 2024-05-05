@@ -34,8 +34,8 @@ jobs:
             sudo rm -rf *
             
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@main
         working-directory: go-tools-services
+        uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
