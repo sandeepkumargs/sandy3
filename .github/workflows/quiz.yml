@@ -1,4 +1,4 @@
-name: BE gaplatform
+name: BE ga-quiz
 
 on:
   push:
@@ -50,5 +50,5 @@ jobs:
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
              cd /home/ubuntu
-             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start ecosystem.config.js
+             /home/ubuntu/.nvm/versions/node/v21.7.3/bin/pm2 start service2.config.js
 
