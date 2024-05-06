@@ -39,7 +39,7 @@ jobs:
           SSH_PRIVATE_KEY: ${{ secrets.EC2_SSH_KEY }}
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          source: ${{ secrets.source1 }}
+          source: ${{ secrets.QUIZ_SRC }}
   
 
       - name: Restart PM2 Process
