@@ -25,6 +25,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+           # Install AWS CLI
+      - name: Install AWS CLI
+        uses: aws/setup-aws-cli@v1
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
         with:
