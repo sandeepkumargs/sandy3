@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.send(
-    " Thought of the day - The only failure is not trying..",
+    " hi iam sandeep, Thought of the day - The only failure is not trying..",
   );
 });
 
