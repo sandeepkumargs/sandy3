@@ -1,0 +1,306 @@
+{
+"questions":[
+            {
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What is the output of the following code snippet?",
+            "code": "function* countTo(max) {\n    for (let i = 1; i <= max; i++) {\n        yield i;\n    }\n}\n\nfor (const number of countTo(5)) {\n    console.log(number);\n}",
+            "image": "https://as1.ftcdn.net/v2/jpg/07/90/09/18/1000_F_790091811_KN0bX79RuZH4mAi73fR12exdfCBW1Oqc.jpg",
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "55"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "89"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "144"
+                }
+            ],
+            "answer":{
+                "option_number": 1,
+                "option_value": "55",
+                "explanation": "The Fibonacci sequence starts with 0 and 1. Each subsequent number in the sequence is the sum of the two preceding ones. So, fibonacci(10) returns the 10th number in the Fibonacci sequence, which is 55. "
+            }
+        },
+        {
+            "id": 2,
+            "question_no": 2,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What will be the output of the code?",
+            "code": "function greet() {\n    return 'Hello, World!';\n}\nconsole.log(greet());",
+            "image": "https://as2.ftcdn.net/v2/jpg/07/87/41/69/1000_F_787416944_YY7G2qwCeIUBkojQIUGolFa6DM8PpB1m.jpg",
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "'Hello, World!'"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "'Goodbye!'"
+                }
+            ],
+            "answer":{
+                "option_number": 1,
+                "option_value": "'Hello, World!'",
+                "explanation": "The code defines a function 'greet' that returns 'Hello, World!' and then logs the result of calling 'greet' to the console."
+            }            
+        },
+        {
+            "id": 3,
+            "question_no": 3,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What will be the output of the code snippet?",
+            "code": "const a = [1, 2, 3];\nconst b = [4, 5, 6];\nconst c = [...a, ...b];\nconsole.log(c);",
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "[[1, 2, 3], [4, 5, 6]]"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "[1, 2, 3, [4, 5, 6]]"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "[1, 2, 3, 4, 5, 6]"
+                }
+            ],
+            "answer":{
+                "option_number": 3,
+                "option_value": "[1, 2, 3, 4, 5, 6]",
+                "explanation": "The spread operator (...) is used to concatenate arrays 'a' and 'b' into array 'c', resulting in [1, 2, 3, 4, 5, 6]."
+            }
+        },
+        {
+            "id": 4,
+            "question_no": 4,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What does the 'use strict' directive do in JavaScript?",
+            "code": null,
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "Enables additional JavaScript features"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "Enforces stricter parsing and error handling",
+                    "correct": true
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "Disables certain JavaScript features"
+                }
+            ],
+            "answer":{
+                "option_number": 2,
+                "option_value": "Enforces stricter parsing and error handling",
+                "explanation": "'use strict' enables strict mode, which catches common coding mistakes and 'unsafe' actions, improving the code quality and security."
+            }
+        },
+        {
+            "id": 5,
+            "question_no": 5,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What will be the output of the following code?",
+            "code": "function* fibonacci() {\n    let a = 0, b = 1;\n    while (true) {\n        yield a;\n        [a, b] = [b, a + b];\n    }\n}\n\nconst sequence = fibonacci();\nfor (let i = 0; i < 10; i++) {\n    console.log(sequence.next().value);\n}",
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "0, 1, 2, 3, 4, 5, 6, 7, 8, 9"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "1, 2, 3, 4, 5, 6, 7, 8, 9, 10"
+                }
+            ],
+            "answer":{
+                "option_number": 1,
+                "option_value": "0, 1, 1, 2, 3, 5, 8, 13, 21, 34",
+                "explanation": "The code implements a generator function for generating Fibonacci numbers. It then prints the first 10 Fibonacci numbers."
+            }
+        },
+        {
+            "id": 6,
+            "question_no": 6,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What will be the output of the following code snippet?",
+            "code": "const x = function() {\n  return {\n    message: 'Hello',\n    getMessage: function() {\n      return this.message;\n    }\n  };\n}();\nconst msg = x.getMessage;\nconsole.log(msg());",
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "'Hello'"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "'undefined'"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "Error"
+                }
+            ],
+            "answer":{
+                "option_number": 2,
+                "option_value": "'undefined'",
+                "explanation": "When invoking msg(), 'this' inside getMessage refers to the global object (window in browsers, undefined in strict mode), resulting in 'undefined'."
+            }
+        },
+        {
+            "id": 7,
+            "question_no": 7,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What will be the value of 'x' after the following code is executed?",
+            "code": "let x = 10;\n(function() {\n  x += 5;\n})();\nconsole.log(x);",
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "10"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "5"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "15"
+                }
+            ],
+            "answer":{
+                "option_number": 3,
+                "option_value": "15",
+                "explanation": "The code defines an immediately invoked function expression (IIFE) that increments 'x' by 5, resulting in 'x' being 15 when logged."
+            }
+        },
+        {
+            "id": 8,
+            "question_no": 8,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What does the following JavaScript code do?",
+            "code": "const arr = [1, 2, 3, 4, 5];\nconst sum = arr.reduce((acc, cur) => acc + cur, 0);",
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "Calculates the sum of array elements"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "Multiplies array elements together"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "Finds the maximum value in the array"
+                }
+            ],
+            "answer":{
+                "option_number": 1,
+                "option_value": "Calculates the sum of array elements",
+                "explanation": "The reduce() method applies a function against an accumulator and each element in the array to reduce it to a single value, in this case, the sum of array elements."
+            }
+        },
+        {
+            "id": 9,
+            "question_no": 9,
+            "proficieny_level":0,
+            "technology":["JavaScript"],
+            "skills":["Programming"],
+            "tags":[],
+            "mark":1,
+            "weightage":1,
+            "question": "What will be logged to the console?",
+            "code": "const obj = {\n  a: 1,\n  b: 2\n};\n\nObject.freeze(obj);\nobj.c = 3;\nconsole.log(obj.c);",
+            "image": null,
+            "img_ar":"16x9",
+            "estimated_mins":"1",
+            "options": [
+                {
+                    "option_number": 1,
+                    "option_value": "3"
+                },
+                {
+                    "option_number": 2,
+                    "option_value": "undefined"
+                },
+                {
+                    "option_number": 3,
+                    "option_value": "TypeError"
+                }
+            ],
+            "answer":{
+                "option_number": 2,
+                "option_value": "undefined",
+                "explanation": "After freezing 'obj', attempting to add a new property ('c') results in no change, and accessing 'obj.c' returns 'undefined'."
+            }
+        }
+    ]
+}
+   
